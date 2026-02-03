@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="heart-bg"></div>
+        <div class="content day-content">
+            <h1 id="day-title" class="title"></h1>
+            <div class="gif-container">
+                <img id="day-image" src="" alt="Theme GIF" class="cute-gif">
+            </div>
+            <p id="day-message" class="message visible" style="font-size: 1.5rem; margin-top: 1rem; max-width: 600px;"></p>
+            
+            <div class="buttons" style="margin-top: 2rem;">
+                <button id="backBtn" class="btn no-btn">Back</button>
+            </div>
+        </div>
+    </div>
+    <script src="days-data.js"></script>
+    <script>
+        // Get the day ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const dayId = urlParams.get('id');
+        
+        const dayData = daysData.find(d => d.id === dayId);
+        
+        if (dayData) {
+            document.getElementById('day-title').textContent = dayData.title;
+            document.getElementById('day-message').textContent = dayData.message;
+            document.getElementById('day-image').src = dayData.image;
+            document.body.style.backgroundColor = `${dayData.color}22`; // Light version of theme color
+            
+            // Customize back button
+            const backBtn = document.getElementById('backBtn');
+            backBtn.style.borderColor = dayData.color;
+            backBtn.style.color = dayData.color;
+            
+            backBtn.addEventListener('click', () => {
+                window.location.href = 'timeline.html';
+            });
+        } else {
+            // Fallback if id not found
+            window.location.href = 'timeline.html';
+        }
+
+        // Add floating hearts
+        function createHearts() {
+            const heartBg = document.querySelector('.heart-bg');
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            heartBg.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHearts, 300);
+    </script>
+</body>
+</html>

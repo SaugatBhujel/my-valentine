@@ -37,6 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
         for(let i = 0; i < 50; i++) {
             createConfetti();
         }
+
+        // Add a button to proceed to the timeline after 2 seconds
+        setTimeout(() => {
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = "See Our Journey ❤️";
+            nextBtn.classList.add('btn', 'yes-btn');
+            nextBtn.style.marginTop = '20px';
+            nextBtn.style.opacity = '0';
+            nextBtn.style.transition = 'opacity 1s';
+            
+            // Insert after the message
+            message.parentNode.insertBefore(nextBtn, message.nextSibling);
+            
+            // Trigger reflow
+            void nextBtn.offsetWidth;
+            nextBtn.style.opacity = '1';
+
+            nextBtn.addEventListener('click', () => {
+                window.location.href = 'timeline.html';
+            });
+        }, 2000);
     });
 
     // No button hover - Make it run away
