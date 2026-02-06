@@ -172,4 +172,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         animation.onfinish = () => confetti.remove();
     }
+
+    // --- New Cute Features ---
+
+    // 1. Heartbeat Pulse for Yes Button
+    yesBtn.classList.add('pulse-btn');
+
+    // 2. Dynamic Tab Title
+    const originalTitle = document.title;
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            document.title = "Come back! I miss you! 🥺";
+        } else {
+            document.title = originalTitle;
+        }
+    });
+
+    // 3. Cursor Heart Trail
+    let lastTime = 0;
+    document.addEventListener('mousemove', (e) => {
+        const currentTime = Date.now();
+        if (currentTime - lastTime < 100) return; // Limit creation rate to every 100ms
+        lastTime = currentTime;
+
+        const heart = document.createElement('div');
+        heart.classList.add('cursor-heart');
+        heart.style.left = e.clientX + 'px';
+        heart.style.top = e.clientY + 'px';
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1000);
+    });
 });
