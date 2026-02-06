@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Message</title>
-    <link rel="stylesheet" href="styles.css?v=9">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=18">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -22,6 +22,11 @@
                 <button id="surpriseBtn" class="btn pulse-btn">✨ Click for a Surprise! ✨</button>
                 <div id="surprise-container" class="hidden-surprise">
                     <p id="surprise-message" class="surprise-text"></p>
+                    <img id="surprise-image" src="" alt="Surprise!" class="surprise-media hidden">
+                    <video id="surprise-video" controls class="surprise-media hidden">
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <div id="confetti-container"></div>
                 </div>
             </div>
@@ -31,7 +36,7 @@
             </div>
         </div>
     </div>
-    <script src="days-data.js"></script>
+    <script src="days-data.js?v=17"></script>
     <script>
         // Get the day ID from URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -52,6 +57,21 @@
             
             if (dayData.surprise) {
                 surpriseMessage.textContent = dayData.surprise;
+                // Debugging log
+                console.log("Setting surprise message to:", dayData.surprise);
+                
+                // Handle surprise media (image or video)
+                const surpriseImg = document.getElementById('surprise-image');
+                const surpriseVideo = document.getElementById('surprise-video');
+                
+                if (dayData.surpriseVideo) {
+                    surpriseVideo.src = dayData.surpriseVideo;
+                    surpriseVideo.classList.remove('hidden');
+                } else if (dayData.surpriseImage) {
+                    surpriseImg.src = dayData.surpriseImage;
+                    surpriseImg.classList.remove('hidden');
+                }
+                
                 surpriseBtn.style.backgroundColor = dayData.color;
                 surpriseBtn.style.color = 'white';
                 

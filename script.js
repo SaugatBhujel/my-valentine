@@ -16,6 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentAuthStep = 1;
 
+    // Love Calculator Elements
+    const calcBtn = document.getElementById('calcBtn');
+    const loveCalcModal = document.getElementById('loveCalcModal');
+    const yourName = document.getElementById('yourName');
+    const partnerName = document.getElementById('partnerName');
+    const calcSubmitBtn = document.getElementById('calcSubmitBtn');
+    const calcResult = document.getElementById('calcResult');
+    const resultText = document.getElementById('resultText');
+    const resultMessage = document.getElementById('resultMessage');
+    const loadingHeart = document.querySelector('.loading-heart');
+
     // Auth Logic
     function checkAuth() {
         const answer = authInput.value.trim().toLowerCase();
@@ -76,9 +87,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Love Calculator Logic
+    if (calcBtn) {
+        calcBtn.addEventListener('click', () => {
+            loveCalcModal.classList.remove('hidden');
+        });
+    }
+
+    if (loveCalcModal) {
+        loveCalcModal.addEventListener('click', (e) => {
+            if (e.target === loveCalcModal) {
+                loveCalcModal.classList.add('hidden');
+                // Reset result
+                calcResult.classList.add('hidden');
+                yourName.value = '';
+                partnerName.value = '';
+            }
+        });
+
+        calcSubmitBtn.addEventListener('click', () => {
+            const name1 = yourName.value.trim();
+            const name2 = partnerName.value.trim();
+
+            if (!name1 || !name2) {
+                alert("Please enter both names! 🥺");
+                return;
+            }
+
+            // Show loading
+            calcResult.classList.remove('hidden');
+            resultText.textContent = "";
+            resultMessage.textContent = "";
+            loadingHeart.classList.remove('hidden');
+            
+            // Simulate calculation
+            setTimeout(() => {
+                loadingHeart.classList.add('hidden');
+                resultText.textContent = "100%";
+                resultMessage.textContent = "It's a perfect match! You are meant to be! ❤️✨";
+                
+                // Burst confetti
+                for(let i = 0; i < 30; i++) {
+                    createConfetti();
+                }
+            }, 1500);
+        });
+    }
+
     // Create floating hearts
     function createHearts() {
         const heartBg = document.querySelector('.heart-bg');
+        if (!heartBg) return;
+        
         const heart = document.createElement('div');
         heart.classList.add('heart');
         heart.style.left = Math.random() * 100 + 'vw';
@@ -95,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Yes button click
     yesBtn.addEventListener('click', () => {
         buttonsContainer.style.display = 'none';
+        if (calcBtn) calcBtn.style.display = 'none'; // Hide calc button too
         message.classList.remove('hidden');
         setTimeout(() => {
             message.classList.add('visible');

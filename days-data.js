@@ -6,7 +6,8 @@ const daysData = [
         icon: "🌹",
         title: "Happy Rose Day!",
         message: "Like a rose, you fill my life with fragrance and beauty. Here's a virtual rose just for you!",
-        surprise: "Close your eyes! 🙈 (I have a real surprise waiting for you... don't peek!)",
+        surprise: "yr fat brother ruined my suprise",
+        surpriseVideo: "images/us.mp4",
         image: "images/rose.gif",
         color: "#ff3366"
     },

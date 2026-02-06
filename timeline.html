@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Valentine's Week</title>
-    <link rel="stylesheet" href="styles.css?v=9">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=18">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container timeline-container">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <script src="days-data.js"></script>
+    <script src="days-data.js?v=17"></script>
     <script>
         // Timeline Generation Logic
         const timeline = document.querySelector('.timeline');
@@ -63,6 +63,8 @@
             // Calculate locked state using HK time
             const targetTime = getTargetTimestampHK(day.date, currentYear);
             const now = Date.now();
+            
+            // Lock everything based on target time
             const isLocked = targetTime > now;
 
             const card = document.createElement('div');

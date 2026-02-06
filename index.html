@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine?</title>
-    <link rel="stylesheet" href="styles.css?v=9">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=18">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -19,6 +19,7 @@
                 <button id="yesBtn" class="btn yes-btn">Yes</button>
                 <button id="noBtn" class="btn no-btn">No</button>
             </div>
+            <button id="calcBtn" class="btn calc-btn" style="margin-top: 20px; font-size: 0.9rem; background: white; color: #ff4d6d; border: 2px solid #ff4d6d;">Love Calculator 💘</button>
             <p id="message" class="hidden message">Yay! I knew you would say yes! ❤️</p>
         </div>
         
@@ -35,7 +36,23 @@
             </div>
         </div>
 
+        <!-- Love Calculator Modal -->
+        <div id="loveCalcModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Love Calculator 💘</h2>
+                <p>Let's see how compatible we are!</p>
+                <input type="text" id="yourName" placeholder="Your Name" />
+                <input type="text" id="partnerName" placeholder="My Name" />
+                <button id="calcSubmitBtn" class="btn yes-btn" style="width: 100%;">Calculate %</button>
+                <div id="calcResult" class="hidden" style="margin-top: 20px;">
+                    <div class="loading-heart hidden">❤️</div>
+                    <h3 id="resultText" style="color: #ff0a54; font-size: 2rem; font-family: 'Pacifico', cursive;"></h3>
+                    <p id="resultMessage" style="font-size: 0.9rem; margin-top: 5px;"></p>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <script src="script.js?v=9"></script>
+    <script src="script.js?v=11"></script>
 </body>
 </html>
