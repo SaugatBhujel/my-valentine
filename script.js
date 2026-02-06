@@ -205,4 +205,55 @@ document.addEventListener('DOMContentLoaded', () => {
             heart.remove();
         }, 1000);
     });
+
+    // 4. Click Burst Effect
+    document.addEventListener('click', (e) => {
+        // Don't trigger if clicking buttons or inputs (optional, but good for UX)
+        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+
+        const emojis = ['❤️', '💖', '🧸', '🌹', '✨', '🍫', '💋'];
+        const burstCount = 8;
+        
+        for (let i = 0; i < burstCount; i++) {
+            const emoji = document.createElement('div');
+            emoji.classList.add('click-burst-emoji');
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            // Random direction
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = Math.random() * 80 + 40; // distance
+            const tx = Math.cos(angle) * velocity + 'px';
+            const ty = Math.sin(angle) * velocity + 'px';
+            const rot = Math.random() * 360 + 'deg';
+
+            emoji.style.left = e.clientX + 'px';
+            emoji.style.top = e.clientY + 'px';
+            emoji.style.setProperty('--tx', tx);
+            emoji.style.setProperty('--ty', ty);
+            emoji.style.setProperty('--rot', rot);
+
+            document.body.appendChild(emoji);
+
+            setTimeout(() => emoji.remove(), 800);
+        }
+    });
+
+    // 5. Typing Animation for Title
+    const titleElement = document.querySelector('.title');
+    if (titleElement) {
+        const textToType = "Will you be my Valentine?";
+        titleElement.textContent = ""; // Clear it
+        let charIndex = 0;
+
+        function typeChar() {
+            if (charIndex < textToType.length) {
+                titleElement.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeChar, 100); // Typing speed
+            }
+        }
+        
+        // Start typing after a small delay
+        setTimeout(typeChar, 500);
+    }
 });

@@ -618,4 +618,75 @@ body {
     }
 }
 
+/* Mascot Speech Bubble */
+.gif-container {
+    position: relative; /* Needed for absolute positioning of bubble */
+}
+
+.speech-bubble {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #ff4d6d;
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.gif-container:hover .speech-bubble {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Click Burst Emoji */
+.click-burst-emoji {
+    position: fixed;
+    pointer-events: none;
+    font-size: 1.5rem;
+    z-index: 9999;
+    animation: burstOut 0.8s ease-out forwards;
+}
+
+@keyframes burstOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(var(--rot));
+    }
+}
+
+/* Typing Cursor Effect */
+.title {
+    border-right: 3px solid #ff4d6d;
+    padding-right: 5px;
+    animation: blink-caret 0.75s step-end infinite;
+    display: inline-block; /* Keep cursor with text */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ff4d6d; }
+}
+
 
