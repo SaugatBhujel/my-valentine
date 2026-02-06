@@ -364,6 +364,102 @@ body {
     box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
 }
 
+/* --- FIXES FOR MAIN PAGE (index.html) --- */
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+/* Yes Button Style */
+.yes-btn {
+    background-color: #ff4d6d !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+}
+
+.yes-btn:hover {
+    background-color: #ff3366 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-content h2 {
+    color: #ff4d6d;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ffe5ec;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.modal-content input:focus {
+    border-color: #ff4d6d;
+}
+
+.error-msg {
+    color: #ff0a54;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content {
+    text-align: center;
+}
+
 .no-btn {
     background: transparent;
     border: 2px solid #ff4d6d; /* Default fallback */
@@ -490,98 +586,4 @@ body {
     animation: shake 0.4s ease-in-out;
 }
 
-/* --- FIXES FOR MAIN PAGE (index.html) --- */
 
-/* Buttons Container */
-.buttons {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    justify-content: center;
-}
-
-/* Yes Button Style */
-.yes-btn {
-    background-color: #ff4d6d;
-    color: white;
-    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
-}
-
-.yes-btn:hover {
-    background-color: #ff3366;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
-}
-
-/* Modal Styles */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    backdrop-filter: blur(5px);
-    animation: fadeIn 0.3s ease;
-}
-
-.modal-content {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    position: relative;
-    animation: slideUp 0.3s ease;
-}
-
-.modal-content h2 {
-    color: #ff4d6d;
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-}
-
-.modal-content p {
-    color: #555;
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-.modal-content input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ffe5ec;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.modal-content input:focus {
-    border-color: #ff4d6d;
-}
-
-.error-msg {
-    color: #ff0a54;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    font-weight: 500;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.content {
-    text-align: center;
-}
