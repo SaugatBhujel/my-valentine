@@ -21,6 +21,20 @@
             </div>
             <p id="message" class="hidden message">Yay! I knew you would say yes! ❤️</p>
         </div>
+        
+        <!-- Authentication Modal -->
+        <div id="authModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>One Last Check! 🔒</h2>
+                <p>Only my true Valentine knows the answer...</p>
+                <p id="authQuestion" class="auth-question">Who do I love the most?</p>
+                <p id="authHint" class="auth-hint">Hint: Your name</p>
+                <input type="text" id="authInput" placeholder="Type the answer..." />
+                <button id="authSubmitBtn" class="btn yes-btn" style="padding: 0.5rem 1.5rem; font-size: 1rem; margin-top: 10px;">Unlock ❤️</button>
+                <p id="authError" class="error-msg hidden">Oops! Try again, my love! 🥺</p>
+            </div>
+        </div>
+
     </div>
     <script src="script.js"></script>
 </body>

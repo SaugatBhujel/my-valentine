@@ -6,6 +6,76 @@ document.addEventListener('DOMContentLoaded', () => {
     const gifContainer = document.querySelector('.gif-container');
     const cuteGif = document.querySelector('.cute-gif');
 
+    // Auth Modal Elements
+    const authModal = document.getElementById('authModal');
+    const authInput = document.getElementById('authInput');
+    const authSubmitBtn = document.getElementById('authSubmitBtn');
+    const authError = document.getElementById('authError');
+    const authQuestion = document.getElementById('authQuestion');
+    const authHint = document.getElementById('authHint');
+
+    let currentAuthStep = 1;
+
+    // Auth Logic
+    function checkAuth() {
+        const answer = authInput.value.trim().toLowerCase();
+        
+        if (currentAuthStep === 1) {
+            // Question 1: Who do I love the most?
+            const correctAnswers1 = ['khushi gurung', 'khushi', 'khushigurung']; 
+            
+            if (correctAnswers1.includes(answer)) {
+                // Success! Move to next question
+                currentAuthStep = 2;
+                authQuestion.textContent = "Correct! 🥰 Now, what is the nickname I call you?";
+                if (authHint) authHint.classList.add('hidden'); // Hide hint for step 2
+                authInput.value = '';
+                authInput.focus();
+                authError.classList.add('hidden');
+            } else {
+                showError();
+            }
+        } else if (currentAuthStep === 2) {
+            // Question 2: What is the nickname I call you?
+            const correctAnswers2 = ['khushu']; 
+            
+            if (correctAnswers2.includes(answer)) {
+                window.location.href = 'timeline.html';
+            } else {
+                showError();
+            }
+        }
+    }
+
+    function showError() {
+        authError.classList.remove('hidden');
+        authInput.style.borderColor = '#ff0a54';
+        authInput.classList.add('shake');
+        setTimeout(() => {
+            authInput.classList.remove('shake');
+        }, 500);
+    }
+
+    authSubmitBtn.addEventListener('click', checkAuth);
+    
+    authInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            checkAuth();
+        }
+    });
+
+    authInput.addEventListener('input', () => {
+        authError.classList.add('hidden');
+        authInput.style.borderColor = '#ffe6e6';
+    });
+
+    // Close modal on outside click
+    authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) {
+            authModal.classList.add('hidden');
+        }
+    });
+
     // Create floating hearts
     function createHearts() {
         const heartBg = document.querySelector('.heart-bg');
@@ -55,7 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
             nextBtn.style.opacity = '1';
 
             nextBtn.addEventListener('click', () => {
-                window.location.href = 'timeline.html';
+                authModal.classList.remove('hidden');
+                // Reset to step 1
+                currentAuthStep = 1;
+                authQuestion.textContent = "Who do I love the most?";
+                authHint.classList.remove('hidden'); // Show hint
+                authInput.value = '';
+                authError.classList.add('hidden');
+                authInput.focus();
             });
         }, 2000);
     });

@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,117 +7,69 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-    background-color: #ffe6e6;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+    min-height: 100vh;
+    color: #333;
+    overflow-x: hidden;
 }
 
 .container {
-    text-align: center;
-    position: relative;
-    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
     font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: #ff4d6d;
+    text-align: center;
     margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-.gif-container {
-    margin-bottom: 2rem;
+.quote-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.cute-gif {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.btn {
-    padding: 1rem 3rem;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-.yes-btn {
-    background-color: #ff4d6d;
-    color: white;
-    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
-}
-
-.yes-btn:hover {
-    transform: scale(1.1);
-    background-color: #ff3355;
-}
-
-.no-btn {
-    background-color: #fff;
+.quote-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
     color: #ff4d6d;
-    border: 2px solid #ff4d6d;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.no-btn:hover {
-    background-color: #ffe6e6;
-}
-
-.message {
-    font-size: 2rem;
-    color: #ff4d6d;
-    font-weight: 600;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-}
-
-.message.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .hidden {
     display: none !important;
 }
 
-/* Timeline specific styles */
-.timeline-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    height: 100vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
+/* Timeline Layout */
 .timeline {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
     width: 100%;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
+    justify-items: center;
+    max-width: 1200px;
 }
 
+/* Day Card Styles */
 .day-card {
     background: white;
     padding: 1.5rem;
@@ -129,11 +82,65 @@ body {
     align-items: center;
     gap: 0.5rem;
     animation: fadeIn 0.5s ease backwards;
+    width: 100%;
+    max-width: 320px; /* Slightly wider */
+    height: 400px; /* Taller to fit everything */
+    position: relative;
 }
 
 .day-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(255, 77, 109, 0.2);
+}
+
+.day-card.locked {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border: 1px solid #ddd;
+}
+
+.day-card.locked:hover {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.day-card.locked .icon {
+    font-size: 3rem;
+    color: #999;
+    margin-top: 1rem;
+}
+
+/* Card Countdown Styles */
+.card-countdown {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.card-countdown div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffe5ec;
+    padding: 0.5rem;
+    border-radius: 8px;
+    min-width: 45px;
+}
+
+.card-countdown span {
+    font-weight: bold;
+    color: #ff3366;
+    font-size: 1.1rem;
+}
+
+.card-countdown label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    margin-top: 2px;
 }
 
 .day-card .date {
@@ -143,9 +150,19 @@ body {
 }
 
 .day-card .day-name {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #ff4d6d;
     font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
 }
 
 .day-card .icon {
@@ -163,7 +180,22 @@ body {
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    max-width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    text-align: center;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    max-height: 200px;
 }
 
 /* Floating Hearts Background */
@@ -281,4 +313,173 @@ body {
     .time-box span:first-child {
         font-size: 1.8rem;
     }
+}
+
+/* Day Page Specific Styles */
+.cute-gif {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 1.5rem 0;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pulse-btn {
+    background-color: #ff4d6d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.pulse-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+
+.no-btn {
+    background: transparent;
+    border: 2px solid #ff4d6d; /* Default fallback */
+    color: #ff4d6d;
+    margin-top: 1rem;
+}
+
+.no-btn:hover {
+    background: #ff4d6d;
+    color: white !important; /* Override inline style on hover */
+}
+
+.surprise-text {
+    background: #fff;
+    color: #d63384;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px dashed #ff8fa3;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+    text-align: center;
+    position: relative;
+    animation: popUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+}
+
+.surprise-text::before {
+    content: '💌';
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+@keyframes popUp {
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Surprise Section Styles */
+.hidden-surprise {
+    display: none;
+}
+
+.visible-surprise {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.pulse-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 77, 109, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 109, 0); }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    animation: confetti-fall 3s linear forwards;
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(300px) rotate(720deg); opacity: 0; }
+}
+
+/* Toast Notification */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
+
+/* Shake Animation for Locked Cards */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-5deg); }
+    50% { transform: translateX(5px) rotate(5deg); }
+    75% { transform: translateX(-5px) rotate(-5deg); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.4s ease-in-out;
 }

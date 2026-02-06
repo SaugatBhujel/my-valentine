@@ -6,7 +6,8 @@ const daysData = [
         icon: "🌹",
         title: "Happy Rose Day!",
         message: "Like a rose, you fill my life with fragrance and beauty. Here's a virtual rose just for you!",
-        image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0b3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4/26BRv0ThflsKCqM6k/giphy.gif", // Rose GIF
+        surprise: "Close your eyes! 🙈 (I have a real surprise waiting for you... don't peek!)",
+        image: "images/rose.gif",
         color: "#ff3366"
     },
     {
@@ -16,7 +17,7 @@ const daysData = [
         icon: "💍",
         title: "Happy Propose Day!",
         message: "I don't need a special day to say this, but... will you be mine forever?",
-        image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0b3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4/3oEjI6SIIHBdRxXI40/giphy.gif", // Proposal GIF
+        image: "images/propose.gif",
         color: "#9d4edd"
     },
     {
@@ -26,7 +27,8 @@ const daysData = [
         icon: "🍫",
         title: "Happy Chocolate Day!",
         message: "You are sweeter than any chocolate in the world. Sending you lots of sweetness!",
-        image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0b3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4/l0HlHFRbmaX9K0L0I/giphy.gif", // Chocolate GIF
+        surprise: "Close your eyes! 🙈 (I have something sweet for you in real life...)",
+        image: "images/chocolate_new.gif",
         color: "#5e3023"
     },
     {
@@ -36,7 +38,8 @@ const daysData = [
         icon: "🧸",
         title: "Happy Teddy Day!",
         message: "Sending you a big warm bear hug! You're my favorite cuddle buddy.",
-        image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0b3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4/McV8EUMpQ5KaY/giphy.gif", // Teddy GIF
+        surprise: "Close your eyes! 🙈 (A cuddly surprise is waiting for you!)",
+        image: "images/teddy_cute.gif",
         color: "#fb8500"
     },
     {
@@ -46,7 +49,7 @@ const daysData = [
         icon: "🤞",
         title: "Happy Promise Day!",
         message: "I promise to always be there for you, to make you smile, and to love you more each day.",
-        image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0b3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4/3o7TKoWXm3okO1kgHC/giphy.gif", // Promise GIF
+        image: "images/promise.gif",
         color: "#219ebc"
     },
     {
@@ -56,7 +59,7 @@ const daysData = [
         icon: "🤗",
         title: "Happy Hug Day!",
         message: "Sometimes all you need is a hug. Here's a tight one from me to you!",
-        image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0b3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4/l8ooOxhcItoww/giphy.gif", // Hug GIF
+        image: "images/hug.gif",
         color: "#ffb703"
     },
     {
@@ -66,7 +69,7 @@ const daysData = [
         icon: "💋",
         title: "Happy Kiss Day!",
         message: "Sending you a million kisses to brighten up your day. Muah!",
-        image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0b3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4/QGC38eO1f9n32/giphy.gif", // Kiss GIF
+        image: "images/kiss.gif",
         color: "#d00000"
     },
     {
@@ -76,7 +79,9 @@ const daysData = [
         icon: "❤️",
         title: "Happy Valentine's Day!",
         message: "You are my everything. Thank you for being my Valentine today and every day. I love you!",
-        image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0b3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4Y3B4/26FLdmIp6wJr91JAI/giphy.gif", // Heart GIF
+        image: "images/valentine_classic.gif",
         color: "#ff0a54"
     }
 ];
+
+// Data is pure now. Logic will be handled in the main script.

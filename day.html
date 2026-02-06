@@ -15,8 +15,17 @@
             <div class="gif-container">
                 <img id="day-image" src="" alt="Theme GIF" class="cute-gif">
             </div>
-            <p id="day-message" class="message visible" style="font-size: 1.5rem; margin-top: 1rem; max-width: 600px;"></p>
+            <p id="day-message" class="message visible"></p>
             
+            <!-- Surprise Section -->
+            <div id="surprise-section" style="margin-top: 2rem;">
+                <button id="surpriseBtn" class="btn pulse-btn">✨ Click for a Surprise! ✨</button>
+                <div id="surprise-container" class="hidden-surprise">
+                    <p id="surprise-message" class="surprise-text"></p>
+                    <div id="confetti-container"></div>
+                </div>
+            </div>
+
             <div class="buttons" style="margin-top: 2rem;">
                 <button id="backBtn" class="btn no-btn">Back</button>
             </div>
@@ -36,6 +45,26 @@
             document.getElementById('day-image').src = dayData.image;
             document.body.style.backgroundColor = `${dayData.color}22`; // Light version of theme color
             
+            // Surprise Logic
+            const surpriseBtn = document.getElementById('surpriseBtn');
+            const surpriseContainer = document.getElementById('surprise-container');
+            const surpriseMessage = document.getElementById('surprise-message');
+            
+            if (dayData.surprise) {
+                surpriseMessage.textContent = dayData.surprise;
+                surpriseBtn.style.backgroundColor = dayData.color;
+                surpriseBtn.style.color = 'white';
+                
+                surpriseBtn.addEventListener('click', () => {
+                    surpriseBtn.classList.add('hidden');
+                    surpriseContainer.classList.remove('hidden-surprise');
+                    surpriseContainer.classList.add('visible-surprise');
+                    createConfetti(dayData.color);
+                });
+            } else {
+                document.getElementById('surprise-section').style.display = 'none';
+            }
+
             // Customize back button
             const backBtn = document.getElementById('backBtn');
             backBtn.style.borderColor = dayData.color;
@@ -60,6 +89,23 @@
             setTimeout(() => heart.remove(), 6000);
         }
         setInterval(createHearts, 300);
+
+        function createConfetti(color) {
+            const container = document.getElementById('confetti-container');
+            const colors = [color, '#ff4d6d', '#ff8fa3', '#fff0f3', '#ffd700'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
     </script>
 </body>
 </html>
