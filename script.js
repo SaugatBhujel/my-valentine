@@ -256,4 +256,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Start typing after a small delay
         setTimeout(typeChar, 500);
     }
+
+    // 6. Make Bear Clickable (Triggers Yes)
+    if (cuteGif) {
+        cuteGif.addEventListener('click', () => {
+            yesBtn.click();
+        });
+    }
 });

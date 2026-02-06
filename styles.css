@@ -324,6 +324,12 @@ body {
     object-fit: contain; /* Ensure it doesn't get cut off */
     filter: drop-shadow(0 10px 20px rgba(255, 77, 109, 0.2)); /* Soft shadow that follows the image shape */
     animation: hoverFloat 3s ease-in-out infinite; /* Cute floating animation */
+    cursor: pointer; /* Shows it's clickable */
+    transition: transform 0.2s;
+}
+
+.main-gif:active {
+    transform: scale(0.95);
 }
 
 @keyframes hoverFloat {
