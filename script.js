@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = document.getElementById('message');
     const buttonsContainer = document.querySelector('.buttons');
     const gifContainer = document.querySelector('.gif-container');
-    const cuteGif = document.querySelector('.cute-gif');
+    const cuteGif = document.querySelector('.main-gif');
 
     // Auth Modal Elements
     const authModal = document.getElementById('authModal');

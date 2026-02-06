@@ -316,11 +316,11 @@ body {
 }
 
 /* Day Page Specific Styles */
-.cute-gif {
+.main-gif {
     max-width: 100%;
     /* Removed border-radius and box-shadow to remove the "box" look */
     margin: 1rem 0;
-    max-height: 380px; /* Made it bigger */
+    max-height: 400px; /* Made it bigger */
     object-fit: contain; /* Ensure it doesn't get cut off */
     filter: drop-shadow(0 10px 20px rgba(255, 77, 109, 0.2)); /* Soft shadow that follows the image shape */
     animation: hoverFloat 3s ease-in-out infinite; /* Cute floating animation */
