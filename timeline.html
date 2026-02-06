@@ -64,8 +64,8 @@
             const targetTime = getTargetTimestampHK(day.date, currentYear);
             const now = Date.now();
             
-            // Lock everything based on target time
-            const isLocked = targetTime > now;
+            // Lock everything based on target time, BUT UNLOCK ROSE DAY for testing
+            const isLocked = (day.id === 'rose') ? false : targetTime > now;
 
             const card = document.createElement('div');
             card.classList.add('day-card');
