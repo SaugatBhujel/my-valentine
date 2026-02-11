@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } else if (currentAuthStep === 2) {
             // Question 2: What is the nickname I call you?
-            const correctAnswers2 = ['khushu']; 
+            // Added common spelling variations just in case
+            const correctAnswers2 = ['khushu', 'khusu', 'kushu', 'khu shu', 'khush', 'khusi']; 
             
             if (correctAnswers2.includes(answer)) {
                 window.location.href = 'timeline.html';
